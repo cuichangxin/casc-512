@@ -12,11 +12,11 @@ interface CustomOptions {
 }
 
 interface LoadingOptions {
-  fullscreen?: boolean // 全屏
+  fullscreen?: boolean // 全屏 貌似服务形式调用只能全屏
   text?: string // 显示文本
   customClass?: string // 自定义class
   spinner?: string // 动画类型
-  background?: string // 背景色
+  background?: string // 遮罩背景色
 }
 
 const pendingMap: Map<string, CancelToken> = new Map()
@@ -64,7 +64,6 @@ function Axios(
         LoadingInstance._count++
         if (LoadingInstance._count === 1) {
           LoadingInstance._target = ElLoading.service(loadingOptions)
-          console.log(LoadingInstance);
         }
       }
       if (getToken()) {

@@ -12,7 +12,7 @@ router.beforeEach((to, _from, next) => {
   // 有token
   if (getToken()) {
     if (to.path === '/login') {
-      next()
+      next({path:'/'})
       NProgress.done()
     } else {
       next()

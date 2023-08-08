@@ -2,14 +2,14 @@
   菜单
 </template>
 <script setup lang="ts">
-import { getCurrentInstance } from "vue";
+import { getCurrentInstance,ComponentInternalInstance } from "vue";
 
-const { proxy } = getCurrentInstance()
+const { proxy } = getCurrentInstance() as ComponentInternalInstance
 
-proxy.$axios.login({
+proxy?.$axios.login({
   userName:'MKSF',
   userPwd:'123456'
-}).then((res) => {
+}).then((res: any) => {
   console.log(res);
 })
 </script>
